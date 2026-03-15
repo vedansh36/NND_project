@@ -1,5 +1,3 @@
-:::writing{variant=“standard” id=“47321”}
-
 <div align="center">
 
 
