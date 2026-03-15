@@ -101,6 +101,7 @@ quantum-routing-optimization/
 ├── animate_packet_flow.m
 │
 └── README.md
+```
 
 ---
 
@@ -108,7 +109,7 @@ quantum-routing-optimization/
 
 The routing optimization framework follows a structured pipeline that simulates network creation, evaluates routing algorithms, and compares their sustainability performance.
 
-```
+```text
 [ Network Generation ]
         ↓
 (Waxman Topology Creation)
