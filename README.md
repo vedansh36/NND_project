@@ -104,6 +104,8 @@ quantum-routing-optimization/
 
 ## 🔄 Simulation Workflow
 
+The routing optimization framework follows a structured pipeline that simulates network creation, evaluates routing algorithms, and compares their sustainability performance.
+
 [ Network Generation ] 
          ↓
 (Waxman Topology Creation) 
@@ -121,49 +123,6 @@ quantum-routing-optimization/
 (Energy / Carbon / PEI)
          ↓
 [ Visualization & Analysis ]
-
-## ⚙️ Installation & Setup
-1. Clone the repository
-
-Bash
-git clone [https://github.com/YOUR-USERNAME/quantum-routing-optimization.git](https://github.com/YOUR-USERNAME/quantum-routing-optimization.git)
-2. Navigate into the project
-
-Bash
-cd quantum-routing-optimization
-3. Run the simulation
-Open MATLAB and run the main entry file:
-
-Matlab
-main_simulation
-The simulation will automatically:
-
-Generate the Waxman network topology.
-
-Assign latency, energy, and carbon metrics.
-
-Execute the routing algorithms.
-
-Evaluate performance metrics.
-
-Visualize routing paths and packet flows.
-
-Generate comparative performance plots.
-
-## 🎯 Learning Goals
-This project explores concepts from:
-
-Green Networking
-
-Multi-Objective Optimization
-
-Network Routing Algorithms
-
-Quantum-Inspired Optimization Methods
-
-Graph Theory in Communication Networks
-
-MATLAB-Based Network Simulation
 
 ## ⚠️ Disclaimer
 Note: This project is a research simulation for educational purposes. The quantum-inspired routing approach is inspired by QAOA and QUBO optimization models, but the optimization is executed using classical computation in MATLAB rather than real quantum hardware.
