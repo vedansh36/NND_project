@@ -2,11 +2,11 @@ clear
 clc
 
 %% PARAMETERS
-nodes = 15;
-flows = 200;
+nodes = 40;
+flows = 300;
 
 %% GENERATE NETWORK
-[G, positions] = generate_waxman_topology(nodes,0.7,0.7);
+[G,positions] = generate_waxman_topology(nodes,0.5,0.3);
 
 %% COMPUTE LINK METRICS
 [latency, energy, carbon] = compute_link_metrics(G,positions);
@@ -38,7 +38,7 @@ for f = 1:flows
     end
     
     % Generate candidate paths
-    paths = yen_k_shortest_paths(G,s,d,30);
+    paths = yen_k_shortest_paths(G,s,d,12);
     
     % ROUTING METHODS
     
@@ -102,17 +102,13 @@ while ~found
     p2 = energy_aware_routing(paths,latency,energy);
     p3 = qaoa_routing_simulated(paths,latency,energy,carbon);
 
-    if ~isequal(p1,p2) && ~isequal(p2,p3) 
+    if ~isequal(p1,p2) && ~isequal(p2,p3) && ~isequal(p3,p1)
         found = true;
     end
 
 end
 
 plot_network_topology(G,positions)
-
-% plot_routing_path(G,positions,p1,'Fig 6: Shortest Path Routing')
-% plot_routing_path(G,positions,p2,'Fig 7: Energy-Aware Routing')
-% plot_routing_path(G,positions,p3,'Fig 8: Quantum Routing')
 
 animate_packet_flow(G,positions,p1,'Packet Flow - Shortest Path')
 animate_packet_flow(G,positions,p2,'Packet Flow - Energy-Aware')

@@ -1,10 +1,11 @@
 function best_path = qaoa_routing_simulated(paths, latency, energy, carbon)
 
-alpha = 0.3;
-beta = 0.3;
-gamma = 0.4;
+alpha = 0.3;   % latency weight
+beta  = 0.4;   % energy weight
+gamma = 0.3;   % carbon weight
 
 best_cost = inf;
+best_path = [];
 
 for i = 1:length(paths)
     
@@ -21,11 +22,24 @@ for i = 1:length(paths)
         
         L = L + latency(i1,i2);
         E = E + energy(i1,i2);
-        C = C + carbon(i1);
+        
+        % carbon associated with node
+        C = C + carbon(i2);
         
     end
     
+    % Normalize by path length
+    hops = length(p) - 1;
+    
+    L = L / hops;
+    E = E / hops;
+    C = C / hops;
+    
+    % Multi-objective cost
     cost = alpha*L + beta*E + gamma*C;
+    
+    % Simulated quantum sampling noise
+    cost = cost * (1 + 0.05*randn);
     
     if cost < best_cost
         

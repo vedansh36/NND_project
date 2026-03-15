@@ -1,9 +1,5 @@
 function [G, positions] = generate_waxman_topology(n, alpha, beta)
 
-% n = 15
-% alpha = 0.5
-% beta = 0.5
-
 % Random node positions
 positions = rand(n,2)*1000;
 
